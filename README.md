@@ -26,7 +26,7 @@ Check how many CEFs are on your Windows/Linux/MacOS.
 
 ### MacOS 用户请注意：
 
-你需要预先安装好`.Net 7`运行库（https://dot.net)，然后使用`dotnet CefDetector.Net.dll`来执行本程序。
+你需要预先安装好`.Net 7`运行库（ https://dot.net )，然后使用`dotnet CefDetector.Net.dll`来执行本程序。
 之后试试能不能生成不需要运行库的版本。
 下载链接：
 [ARM64版本运行库(苹果芯片)](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-7.0.0-macos-arm64-installer)
