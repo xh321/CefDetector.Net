@@ -200,6 +200,14 @@ namespace CefDetector.Net
 
             //再搜索目录内所有文件，检查字节
             var files = FilterExecuteBinaries( Directory.GetFiles( dir.FullName, "*", SearchOption.TopDirectoryOnly ) );
+            //如果是Macos，则还需要搜索上一级目录
+            if ( RuntimeInformation.IsOSPlatform( OSPlatform.OSX ) )
+            {
+                files.AddRange( FilterExecuteBinaries( Directory.GetFiles( dir.Parent.FullName,
+                                                                           "*",
+                                                                           SearchOption.TopDirectoryOnly ) ) );
+            }
+
             foreach ( var file in files )
             {
                 if ( !cefBinaries.ContainsKey( file ) )

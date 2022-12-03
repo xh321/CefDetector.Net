@@ -1,20 +1,24 @@
 # CefDetector.Net - 检测你系统中包含多少个 Chromium 内核程序
 
-Check how many CEFs are on your Linux.
+Check how many CEFs are on your Linux/MacOS.
 
-看看你系统 **(Linux)** 上有多少个 [CEF (Chromium Embedded Framework)](https://bitbucket.org/chromiumembedded/cef/).
+看看你系统 **(Linux/MacOS)** 上有多少个 [CEF (Chromium Embedded Framework)](https://bitbucket.org/chromiumembedded/cef/).
 
 目前没有特别完善，可能还有很多情况没考虑到，欢迎发 issue ！
 
-（测试系统：Deepin 23 Alpha，Deepin上浏览器会存在重复检测的情况，看截图你就懂了）
+（测试系统：Deepin 23 Alpha、Apple Silicon MacOS；Deepin上浏览器会存在重复检测的情况，看截图你就懂了）
 
-（也许可以起一个 Web 服务然后展示“喜报“，再说啦）
+（也许可以起一个 Web 服务然后展示“喜报“，以后再说啦）
 
-> 目前仅支持Linux，Windows支持计划中...
+> 目前仅支持Linux/MacOS，Windows支持计划中...
 
 ## 截屏
 
-![Screenshot](./screenshot.png)
+Deepin：
+![ScreenshotLinux](./screenshot_linux.png)
+
+Macos:
+![ScreenshotMacos](./screenshot_mac.png)
 
 ## 使用
 
@@ -29,7 +33,7 @@ Check how many CEFs are on your Linux.
 
 xh321
 
-创意来自 @ShirasawaSama 的 [CefDetector](https://github.com/ShirasawaSama/CefDetector) 项目。由于这个项目不支持Linux，所以我花一下午搓了一个功能差不多的。
+创意来自 @ShirasawaSama 的 [CefDetector](https://github.com/ShirasawaSama/CefDetector) 项目。由于这个项目没有跨平台，所以我花一下午搓了一个功能差不多的。
 
 ## 协议
 
