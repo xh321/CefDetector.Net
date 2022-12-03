@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.AccessControl;
@@ -104,21 +105,34 @@ namespace CefDetector.Net
                    false;
         }
 
+        /// <summary>
+        /// 过滤出带有可执行权限的文件，减少后续判断次数
+        /// </summary>
+        /// <param name="files">文件列表</param>
+        /// <returns></returns>
         public static List<string> FilterExecuteBinaries( string[] files )
         {
-            List<string> executeBinaries = new();
-            foreach ( string file in files )
+            //当前仅支持Linux
+            if ( RuntimeInformation.IsOSPlatform( OSPlatform.Linux ) )
             {
-                Mono.Unix.UnixFileInfo ufi = new(file);
-                if ( ufi.FileAccessPermissions.HasFlag( FileAccessPermissions.UserExecute |
-                                                        FileAccessPermissions.GroupExecute |
-                                                        FileAccessPermissions.OtherExecute ) )
+                List<string> executeBinaries = new();
+                foreach ( string file in files )
                 {
-                    executeBinaries.Add( file );
+                    Mono.Unix.UnixFileInfo ufi = new(file);
+                    if ( ufi.FileAccessPermissions.HasFlag( FileAccessPermissions.UserExecute |
+                                                            FileAccessPermissions.GroupExecute |
+                                                            FileAccessPermissions.OtherExecute ) )
+                    {
+                        executeBinaries.Add( file );
+                    }
                 }
-            }
 
-            return executeBinaries;
+                return executeBinaries;
+            }
+            else
+            {
+                return files.ToList();
+            }
         }
 
         public static Dictionary<string, CefType> CheckDirCefType( string dirPath )
