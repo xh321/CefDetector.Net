@@ -22,7 +22,7 @@ Check how many CEFs are on your Windows/Linux/MacOS.
 
 ## 使用
 
-从 [Release](https://github.com/xh321/CefDetector.Net/releases) 页面下载最新的可执行文件, Unix 用户（Linux/MacOS）需要给予 `CefDetector.Net` 执行权限后运行，Windows 用户直接执行`CefDetector.Net.exe`即可。
+从 [Release](https://github.com/xh321/CefDetector.Net/releases) 页面下载最新的可执行文件, Unix 用户（Linux/MacOS）需要给予 `CefDetector.Net-xxx` 执行权限后运行，Windows 用户直接执行`CefDetector.Net-Win64.exe`即可。
 
 ### MacOS 用户请注意：
 
