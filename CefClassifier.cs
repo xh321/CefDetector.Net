@@ -96,7 +96,7 @@ namespace CefDetector.Net
                                          {
                                              //Contents/Frameworks/Microsoft Edge Framework.framework/Versions/107.0.1418.62
                                              //Contents/Frameworks/Microsoft Edge Framework.framework/Versions/107.0.1418.62/Resources
-                                             file = Path.Join( dir.Parent.FullName, "Microsoft Edge Framework" );
+                                             file = Path.Join( dir.Parent!.FullName, "Microsoft Edge Framework" );
                                          }
                                          else
                                          {
