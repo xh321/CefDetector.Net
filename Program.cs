@@ -31,13 +31,13 @@ switch ( Environment.OSVersion.Platform )
         findArg = " / -name *_percent.pak";
         break;
     case PlatformID.Other :
-        Console.WriteLine( "[初始化]\t操作系统类型未知，尝试使用Unix系命令进行搜索……" );
+        PrettyPrinter.WriteWarning("初始化", "操作系统类型未知，尝试使用Unix系命令进行搜索……");
         findCmd = "find";
         findArg = " / -name *_percent.pak";
         break;
 }
 
-Console.WriteLine( "[初始化]\t正在计算chrome内核个数，请等待，下面是列表：" );
+PrettyPrinter.WriteInfo( "初始化", "正在计算chrome内核个数，请等待，下面是列表：" );
 using var executor = new ProcessExecutor( findCmd, findArg );
 executor.OnOutputDataReceived += ( sender,
                                    str ) =>
@@ -57,14 +57,13 @@ executor.OnOutputDataReceived += ( sender,
                                          if ( !cefList.ContainsKey( file ) )
                                          {
                                              cefList.Add( file, type );
-                                             Console.WriteLine( "["+type + "]\t" + file );
+                                             PrettyPrinter.WriteInfo(type.ToString(), "{0}", file);
                                          }
                                      }
                                  };
 executor.OnErrorDataReceived += ( sender,
                                   str ) =>
-                                {
-                                    //Console.WriteLine( "ERR：" + str );
-                                };
+                                {};
+
 executor.Execute();
-Console.WriteLine( $"[喜报]\t您系统里总共有{cefList.Count}个chrome内核！（可能有重复计算）" );
+PrettyPrinter.WriteInfo( "喜报", $"您系统里总共有{cefList.Count}个chrome内核！（可能有重复计算）" );
